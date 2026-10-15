@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elevara — Sky Residences, Worli Sea Face</title>
+<meta name="description" content="Elevara: a 62-level, 212-metre tower of sky residences on Worli Sea Face, Mumbai. Watch it rise, then step inside Residence 52A.">
+<meta name="theme-color" content="#0d0e10">
+<meta property="og:title" content="Elevara — Sky Residences, Mumbai">
+<meta property="og:description" content="Watch the tower rise, then step inside.">
+<meta property="og:image" content="assets/img/og.jpg">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/seq/rise/d/001.webp" media="(min-width: 860px)">
+<link rel="preload" as="image" href="assets/seq/rise/m/001.webp" media="(max-width: 859px)">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ============ PRELOADER: blueprint draws, then elevator doors open ============ -->
+<div id="loader" aria-hidden="true">
+  <div class="door l"></div><div class="door r"></div>
+  <div class="ld-in">
+    <svg class="ld-bp" viewBox="0 0 120 300" fill="none">
+      <path pathLength="1" d="M42 296 L42 20 Q42 8 60 6 Q78 8 78 20 L78 296"/>
+      <path pathLength="1" d="M30 296 H90"/>
+      <path pathLength="1" d="M42 70 H30 V78 H42 M78 120 H90 V128 H78 M42 170 H30 V178 H42 M78 220 H90 V228 H78"/>
+      <path pathLength="1" class="thin" d="M104 6 V296 M100 6 H108 M100 296 H108"/>
+    </svg>
+    <div class="ld-meta">
+      <span class="mono">Level</span>
+      <span class="ld-num"><b id="ldNum">00</b><i>/62</i></span>
+      <span class="mono" id="ldTxt">Drawing the plans</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header id="hdr">
+  <a href="#rise" class="logo" aria-label="Elevara home">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 23V4l4-3 4 3v19" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 9h8M8 14h8M8 19h8" stroke="currentColor" stroke-width=".8"/></svg>
+    <span>ELEVARA</span>
+  </a>
+  <div class="hdr-alt mono" aria-hidden="true"><span>ALT</span><b id="hdrAlt">000.0</b><span>m</span></div>
+  <nav class="hdr-nav">
+    <a href="#tour">Tour</a><a href="#residences">Residences</a><a href="#views">Views</a><a href="#club">Club</a><a href="#location">Location</a>
+  </nav>
+  <a href="#enquire" class="btn-line">Book a private visit</a>
+  <button id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<div id="menu" aria-hidden="true">
+  <div class="menu-img"><img src="assets/img/tower-night.jpg" alt="" loading="lazy"></div>
+  <nav class="menu-links">
+    <a href="#rise"><i>01</i>The Rise</a>
+    <a href="#tour"><i>02</i>Residence 52A</a>
+    <a href="#residences"><i>03</i>Residences</a>
+    <a href="#views"><i>04</i>Choose your view</a>
+    <a href="#club"><i>05</i>The Club</a>
+    <a href="#location"><i>06</i>Location</a>
+    <a href="#enquire"><i>07</i>Enquire</a>
+  </nav>
+  <p class="menu-foot mono">Sales gallery · Worli Sea Face, Mumbai · +91 22 0000 0000</p>
+</div>
+
+<main>
+
+<!-- ============ 1. THE RISE (construction film) ============ -->
+<section id="rise" class="film" data-vh="520">
+  <div class="stage">
+    <canvas data-seq="assets/seq/rise/" data-count="306" data-eager></canvas>
+    <canvas id="bp" aria-hidden="true"></canvas>
+    <div class="shade"></div>
+
+    <!-- altimeter -->
+    <div class="alti" aria-hidden="true">
+      <div class="alti-scale" id="altiScale"></div>
+      <div class="alti-mark" id="altiMark"><span class="mono" id="altiVal">0 m</span></div>
+    </div>
+
+    <div class="rise-intro" id="riseIntro">
+      <p class="eyebrow mono">Worli Sea Face · Mumbai · 62 levels</p>
+      <h1 class="split">A landmark,<br><em>rising.</em></h1>
+      <p class="lede">Scroll to build Elevara — from an empty plot to the city's newest light on the sea.</p>
+    </div>
+
+    <div class="level" aria-hidden="true">
+      <span class="mono">Level</span>
+      <b id="lvl">00</b>
+    </div>
+
+    <div class="phase" id="phase">
+      <span class="mono phase-q" id="phaseQ">Q1 2023</span>
+      <h2 id="phaseT">Ground broken</h2>
+      <p id="phaseD">A 1.2-acre sea-facing plot is surveyed and excavated 14 metres deep.</p>
+    </div>
+
+    <dl class="ledger mono" aria-label="Construction figures">
+      <div><dt>Concrete poured</dt><dd><b id="lgC">0</b> m³</dd></div>
+      <div><dt>Steel placed</dt><dd><b id="lgS">0</b> t</dd></div>
+      <div><dt>Glass panels</dt><dd><b id="lgG">0</b></dd></div>
+    </dl>
+
+    <ol class="timeline mono" id="timeline">
+      <li><i></i><span>Q1 ’23</span>Ground</li>
+      <li><i></i><span>Q4 ’23</span>Foundation</li>
+      <li><i></i><span>Q3 ’24</span>Frame</li>
+      <li><i></i><span>Q2 ’25</span>Facade</li>
+      <li><i></i><span>Q1 ’26</span>Complete</li>
+      <li><i></i><span>Q4 ’26</span>First light</li>
+    </ol>
+    <div class="rise-end" id="riseEnd">
+      <p class="mono">212.4 m · Topped out</p>
+      <h2>First light<br><em>on the sea.</em></h2>
+    </div>
+    <div class="hint mono" id="hint"><span></span>Scroll to build</div>
+  </div>
+</section>
+
+<!-- ============ 2. MANIFESTO (word-fill) ============ -->
+<section id="manifesto">
+  <p class="mono eyebrow">The idea</p>
+  <p class="fill-text" id="fillText">Above the fortieth floor, there is only one residence per level. Every room faces the sea. The city goes quiet, the horizon gets wider, and home becomes a place you look out from — not into.</p>
+  <ul class="facts">
+    <li><b data-count="212">0</b><span>metres tall</span></li>
+    <li><b data-count="62">0</b><span>levels</span></li>
+    <li><b data-count="4">0</b><span>sky gardens</span></li>
+    <li><b data-count="107">0</b><span>residences only</span></li>
+  </ul>
+</section>
+
+<!-- ============ 3. THE TOUR (fly in + walkthrough) ============ -->
+<section id="tour" class="film" data-vh="520">
+  <div class="stage">
+    <canvas data-seq="assets/seq/tour/" data-count="245"></canvas>
+    <div class="shade s2"></div>
+
+    <div class="tour-head" id="tourHead">
+      <p class="mono">Residence 52A · 4 BHK · 4,850 sq ft</p>
+      <h2 class="split">Step <em>inside.</em></h2>
+    </div>
+
+    <div class="room" id="room">
+      <span class="mono room-n" id="roomN">00</span>
+      <h3 id="roomT">Approach</h3>
+      <p class="mono" id="roomD">Level 52 · 178 m above the sea</p>
+    </div>
+
+    <figure class="plan" aria-label="Floor plan of Residence 52A">
+      <svg viewBox="0 0 200 140" id="planSvg">
+        <rect class="pw" x="6" y="6" width="188" height="128"/>
+        <path class="pr" d="M6 70 H92 V134 M92 6 V70 M92 92 H130 V134 M130 70 V6 M130 92 H194"/>
+        <path class="pg" d="M6 18 V122 M18 6 H182 M194 18 V60"/>
+        <text x="20" y="40">LIVING</text><text x="98" y="40">DINING</text><text x="98" y="52">KITCHEN</text>
+        <text x="140" y="118">MASTER</text><text x="20" y="104">GUEST</text><text x="140" y="40">STUDY</text><text x="98" y="118">PWD</text>
+        <path id="planPath" class="pp" d="M-14 38 L40 38 Q60 38 70 46 L110 64 Q118 70 112 80 L112 96 Q112 104 120 106 L160 112"/>
+        <circle id="planDot" r="3.4" cx="-14" cy="38"/>
+      </svg>
+      <figcaption class="mono"><span>N ↑</span><span>Plan 52A · not to scale</span></figcaption>
+    </figure>
+
+    <div class="tour-prog" aria-hidden="true"><i id="tourBar"></i></div>
+  </div>
+</section>
+
+<!-- ============ 4. RESIDENCES (horizontal) ============ -->
+<section id="residences" data-theme="light">
+  <div class="res-pin">
+    <div class="res-intro">
+      <p class="mono eyebrow">Residences</p>
+      <h2>Five ways<br>to live <em>above.</em></h2>
+      <div class="unit-toggle" role="group" aria-label="Area units">
+        <button class="on" data-u="ft">sq ft</button><button data-u="m">m²</button>
+      </div>
+      <p class="res-note">Keep scrolling →</p>
+    </div>
+    <div class="res-track" id="resTrack"></div>
+  </div>
+</section>
+
+<!-- ============ 5. CHOOSE YOUR VIEW ============ -->
+<section id="views">
+  <div class="view-frame" id="viewFrame">
+    <img src="assets/img/pano.jpg" alt="Panoramic view over the Bandra-Worli Sea Link and Mumbai skyline" id="viewImg" loading="lazy">
+    <div class="view-haze" id="viewHaze"></div>
+    <div class="view-copy">
+      <p class="mono eyebrow">Choose your view</p>
+      <h2>Every floor,<br>a different <em>city.</em></h2>
+    </div>
+    <div class="view-read mono">
+      <div><span>Level</span><b id="vLvl">40</b></div>
+      <div><span>Altitude</span><b id="vAlt">137</b> m</div>
+      <div><span>Horizon</span><b id="vSea">18</b> km</div>
+      <div><span>From</span><b>₹<i id="vPrice">24.6</i> Cr</b></div>
+    </div>
+    <div class="view-slider">
+      <input type="range" id="vRange" min="12" max="61" value="40" aria-label="Choose a floor">
+      <div class="vs-ticks mono"><span>61</span><span>50</span><span>40</span><span>30</span><span>20</span><span>12</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. THE CLUB (stacking cards) ============ -->
+<section id="club">
+  <div class="club-head">
+    <p class="mono eyebrow">The Club · Levels 40 &amp; 62</p>
+    <h2>Forty floors up,<br>the city <em>disappears.</em></h2>
+  </div>
+  <div class="stack">
+    <article class="card-s"><img src="assets/img/lobby.jpg" alt="Double-height marble lobby" loading="lazy"><div><span class="mono">01 · Ground</span><h3>The Arrival Hall</h3><p>A 9-metre lobby in book-matched Nero Marquina, a living olive tree, and a concierge who knows your name.</p></div></article>
+    <article class="card-s"><img src="assets/img/pool.jpg" alt="Rooftop infinity pool at blue hour" loading="lazy"><div><span class="mono">02 · Level 62</span><h3>The Sky Pool</h3><p>A 30-metre infinity edge, heated year-round, where the water meets the lights of the Sea Link.</p></div></article>
+    <article class="card-s"><img src="assets/img/spa.jpg" alt="Glass-walled gym and stone spa" loading="lazy"><div><span class="mono">03 · Level 40</span><h3>Gym, Spa &amp; Hammam</h3><p>A glass-walled training floor, steam, sauna and a cold plunge — with a view on every rep.</p></div></article>
+  </div>
+</section>
+
+<!-- ============ 7. LOCATION ============ -->
+<section id="location">
+  <div class="loc-copy">
+    <p class="mono eyebrow">Location</p>
+    <h2>The centre of<br>everything, <em>on the edge.</em></h2>
+    <ul class="loc-list" id="locList">
+      <li data-pin="0"><b>4</b><span>min</span>Bandra-Worli Sea Link</li>
+      <li data-pin="1"><b>9</b><span>min</span>Coastal Road · Marine Drive</li>
+      <li data-pin="2"><b>12</b><span>min</span>Bandra Kurla Complex</li>
+      <li data-pin="3"><b>15</b><span>min</span>Lower Parel · Phoenix</li>
+      <li data-pin="4"><b>28</b><span>min</span>CSMIA International Airport</li>
+    </ul>
+  </div>
+  <div class="map">
+    <svg viewBox="0 0 500 560" id="mapSvg" aria-label="Map showing travel times from Elevara">
+      <defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="currentColor" stroke-opacity=".06"/></pattern></defs>
+      <rect width="500" height="560" fill="url(#g)"/>
+      <path class="land" d="M300 0 C280 60 300 110 270 150 C240 190 250 230 225 260 C200 300 210 340 190 380 C170 420 180 470 150 520 L140 560 H500 V0 Z"/>
+      <path class="coast" d="M300 0 C280 60 300 110 270 150 C240 190 250 230 225 260 C200 300 210 340 190 380 C170 420 180 470 150 520 L140 560"/>
+      <path class="route" d="M232 290 C200 240 215 190 262 140"/>
+      <path class="route" d="M232 290 C210 360 180 420 160 520"/>
+      <path class="route" d="M232 290 C290 250 330 210 360 160"/>
+      <path class="route" d="M232 290 C280 310 300 340 330 370"/>
+      <path class="route" d="M232 290 C330 230 400 150 430 70"/>
+      <g class="pin" data-pin="0"><circle cx="262" cy="140" r="5"/><text x="274" y="144">Sea Link</text></g>
+      <g class="pin" data-pin="1"><circle cx="160" cy="520" r="5"/><text x="172" y="524">Marine Drive</text></g>
+      <g class="pin" data-pin="2"><circle cx="360" cy="160" r="5"/><text x="372" y="164">BKC</text></g>
+      <g class="pin" data-pin="3"><circle cx="330" cy="370" r="5"/><text x="342" y="374">Lower Parel</text></g>
+      <g class="pin" data-pin="4"><circle cx="430" cy="70" r="5"/><text x="380" y="56">Airport</text></g>
+      <g class="home"><circle cx="232" cy="290" r="16" class="pulse"/><circle cx="232" cy="290" r="6"/><text x="148" y="296">ELEVARA</text></g>
+      <text class="sea" x="30" y="440">ARABIAN SEA</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 8. CALCULATOR ============ -->
+<section id="calc" data-theme="light">
+  <div class="calc-copy">
+    <p class="mono eyebrow">Plan your purchase</p>
+    <h2>A home this<br>high, made <em>simple.</em></h2>
+    <p>Indicative monthly payment with our partner banks. Construction-linked plan: 10% on booking.</p>
+  </div>
+  <form class="calc" id="calcForm" onsubmit="return false">
+    <label><span>Residence value <output id="oV">₹ 24.2 Cr</output></span><input type="range" id="cV" min="140" max="700" step="5" value="245"></label>
+    <label><span>Down payment <output id="oD">25%</output></span><input type="range" id="cD" min="10" max="60" step="5" value="25"></label>
+    <label><span>Tenure <output id="oT">20 yrs</output></span><input type="range" id="cT" min="5" max="30" step="1" value="20"></label>
+    <label><span>Interest rate <output id="oR">8.6%</output></span><input type="range" id="cR" min="7" max="11" step="0.1" value="8.6"></label>
+    <div class="calc-out">
+      <span class="mono">Estimated EMI / month</span>
+      <b>₹ <i id="emi">0</i></b>
+      <small class="mono" id="loanAmt">Loan ₹ 0</small>
+    </div>
+  </form>
+</section>
+
+<!-- ============ 9. ENQUIRE ============ -->
+<section id="enquire">
+  <div class="enq-img"><img src="assets/img/tower-night.jpg" alt="Elevara tower lit at blue hour" loading="lazy" id="enqImg"></div>
+  <div class="enq-form">
+    <p class="mono eyebrow">Private visits by appointment</p>
+    <h2>See it from<br><em>the 52nd floor.</em></h2>
+    <form id="enqForm" novalidate>
+      <label><span>Full name</span><input name="name" required autocomplete="name"></label>
+      <label><span>Mobile</span><input name="phone" required inputmode="tel" autocomplete="tel"></label>
+      <label><span>Residence</span>
+        <select name="type"><option>Sky Residence · 3 BHK</option><option>Corner Residence · 4 BHK</option><option selected>Sea Residence · 4 BHK</option><option>Sky Duplex · 5 BHK</option><option>The Penthouse</option></select></label>
+      <label><span>Preferred date</span><input name="date" type="date"></label>
+      <button type="submit" class="btn-solid"><span>Request a visit</span><i>→</i></button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer id="ftr">
+  <div class="ftr-word" aria-hidden="true">ELEVARA</div>
+  <div class="ftr-cols">
+    <div><b>Sales gallery</b><p>Elevara, Worli Sea Face<br>Mumbai 400 030</p></div>
+    <div><b>Talk to us</b><p>+91 22 0000 0000<br>hello@elevara.example</p></div>
+    <div><b>Follow</b><p><a href="#">Instagram</a> · <a href="#">YouTube</a><br><a href="#">LinkedIn</a></p></div>
+    <div><b>MahaRERA</b><p class="mono">P51900000000<br>(placeholder)</p></div>
+  </div>
+  <p class="ftr-legal">Imagery is an artist's impression for representation only. Specifications, prices and timelines are indicative and subject to change. Elevara is a fictional demo brand.</p>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="cursor" aria-hidden="true"><span></span></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>
